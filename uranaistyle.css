@@ -1,0 +1,75 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.layout-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 576px);
+  grid-template-rows: repeat(2, 576px);
+  gap: 24px;
+  justify-content: center;
+  margin: 40px auto;
+  max-width: 1776px;
+}
+
+.flip-container {
+  width: 576px;
+  height: 576px;
+  perspective: 1000px;
+  cursor: pointer;
+  position: relative;
+}
+
+.flipper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-container.flipped .flipper {
+  transform: rotateY(180deg);
+}
+
+.front, .back1,.back2,.back3,.back4, .back5 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 24px;
+  color: magenta;
+  text-align: center;
+  padding: 20px;
+
+}
+
+.back1,.back2,.back3,.back4, .back5 {
+  transform: rotateY(180deg);
+}
+
+.back1 {
+  background-image: url(img/uranai/uranai_1img.png);
+  transform: rotateY(180deg);
+}
+
+/* 특수 카드만 이미지 배경 */
+.flip-container.special .front {
+  background: none;
+  padding: 0;
+}
+
+.flip-container.special .front img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
